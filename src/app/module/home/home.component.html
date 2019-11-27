@@ -1,0 +1,47 @@
+<div class="container mynews-container">
+
+    <div class="row">
+        <div class="col">
+            <p-tabView (onChange)="handleChange($event)">
+                <p-tabPanel [header]="group.name" *ngFor="let group of groups; let i = index" [selected]="i == 0">
+                    <ul>
+                        <li *ngFor="let message of messages">{{message.message}}</li>
+                    </ul>
+                    <ul>
+                        <li *ngIf="messages == 0">No Message in this group </li>
+                    </ul>
+                    <form action="" (ngSubmit)="addMessage()" #addtextmessage [formGroup]="addmessage">
+
+                        <textarea name="" formControlName="message" id="" cols="100" rows="5"></textarea>
+                        <input type="text" formControlName="groupid">
+                        <button [disabled]="addmessage.invalid" class="btn btn-primary">Add Message</button>
+                    </form>
+                </p-tabPanel>
+            </p-tabView>
+
+
+
+        </div>
+        <!-- <div class="col-md-auto">
+        Variable width content
+      </div> -->
+        <div class="col col-lg-3 left-border">
+            <p-accordion [multiple]="true">
+                <p-accordionTab header="Gropus Available to Join">
+                    <ul>
+                        <li class="grouplist" *ngFor="let group of grouplist"><span class="float-left">{{group.name}}</span><button class="btn btn-secoundary float-right" (click)="joinGroup(group)">Join</button></li>
+                    </ul>
+                </p-accordionTab>
+                <p-accordionTab header="Already Joind Groups">
+                    <ul>
+                     
+                        <li *ngFor="let group of groups;">
+                            {{group.name}}
+                        </li>
+                    </ul>
+                </p-accordionTab>
+
+            </p-accordion>
+        </div>
+    </div>
+</div>
