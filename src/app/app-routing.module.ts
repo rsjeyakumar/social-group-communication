@@ -3,9 +3,6 @@ import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './module/member/login/login.component';
 import { HomeComponent } from './module/home/home.component';
 
-
-
-
 const routes: Routes = [
   {
     path: '',

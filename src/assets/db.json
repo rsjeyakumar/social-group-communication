@@ -31,6 +31,18 @@
       "userId": 2,
       "groupId": 2,
       "id": 2
+    },
+    {
+      "name": "UI",
+      "userId": 3,
+      "groupId": 1,
+      "id": 3
+    },
+    {
+      "name": "JAVA",
+      "userId": 3,
+      "groupId": 2,
+      "id": 4
     }
   ],
   "groups": [
@@ -55,5 +67,55 @@
       "desc": "To Join this group you can Learn Container and qubernatics"
     }
   ],
-  "messages": []
+  "messages": [
+    {
+      "message": "What is the difference between reset.css and normalize CSS?",
+      "groupid": 1,
+      "userid": 2,
+      "username": "jey",
+      "id": 1
+    },
+    {
+      "message": "The difference between reset.css and normalize CSS is that reset.css removes all the built-in browser styling capabilities like margin, padding, and border. Whereas normalize CSS provides a book like an appearance which includes bold family to represent characters, a border between two paragraphs and common font-family for an entire page or the document.",
+      "groupid": null,
+      "userid": 3,
+      "username": "bala",
+      "id": 2
+    },
+    {
+      "message": "The difference between reset.css and normalize CSS is that reset.css removes all the built-in browser styling capabilities like margin, padding, and border. Whereas normalize CSS provides a book like an appearance which includes bold family to represent characters, a border between two paragraphs and common font-family for an entire page or the document.",
+      "groupid": 1,
+      "userid": 3,
+      "username": "bala",
+      "id": 3
+    },
+    {
+      "message": "What is JavaScript hoisting?",
+      "groupid": 1,
+      "userid": 3,
+      "username": "bala",
+      "id": 4
+    },
+    {
+      "message": "This is the most asked UI Developer Interview Questions in an interview. In JavaScript, we need to declare the variables then only we able to access the variables. If a variable is defined at bottom of the script but called before then JavaScript throws variable is undefined. In JavaScript only assigned variables are hoisted like string, numbers etc. undefined variables and functions are not hoisted as they need to define before calling.",
+      "groupid": 1,
+      "userid": 2,
+      "username": "jey",
+      "id": 5
+    },
+    {
+      "message": "i am testing add message",
+      "groupid": 2,
+      "userid": 2,
+      "username": "jey",
+      "id": 6
+    },
+    {
+      "message": "bala send message",
+      "groupid": 2,
+      "userid": 3,
+      "username": "bala",
+      "id": 7
+    }
+  ]
 }

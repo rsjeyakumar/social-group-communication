@@ -1,9 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
-.ing-bg{
-    background-color: #f5f5f5;
+.ing-bg {
+  background-color: #f5f5f5;
 }
 
-.btn-primary{
-    color: #fff !important;
-    background-color: #525199 !important;
+.btn-primary {
+  color: #fff !important;
+  background-color: #525199 !important;
+}
+a {
+  color: #f60 !important    ;
 }

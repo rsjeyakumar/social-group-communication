@@ -39,12 +39,15 @@ export class HomeComponent implements OnInit {
       this.filterGroups();
     });
   }
+
+  /*add Message */
   addMessage() {
     this.http.postMessages(this.addmessage.value).subscribe(res => {
       this.addmessage.reset();
       this.getGroupMessage(this.getGroupId);
     });
   }
+  /*this function  will fetch based on group clicked */
   handleChange(id, name) {
     this.getGroupId = id;
     this.getGroupName = name;
@@ -53,6 +56,8 @@ export class HomeComponent implements OnInit {
     });
     this.getGroupMessage(this.getGroupId);
   }
+
+  /*fetch user joined group */
   getUserGroups() {
     this.http.gerUserGroups(this.getUserId).subscribe(res => {
       this.groups = res;
@@ -69,11 +74,14 @@ export class HomeComponent implements OnInit {
     });
   }
 
+  /*fetch group message */
   getGroupMessage(id) {
     this.http.getMessages(id).subscribe(res => {
       this.messages = res;
     });
   }
+
+  /*Join the group functionalities  */
   joinGroup(group: IGroup): void {
 
     this.jointhisGroup = {};
@@ -92,20 +100,25 @@ export class HomeComponent implements OnInit {
     //   console.log(res);
     // });
   }
+
+  /* Popup confirmation functionality */
   onConfirm() {
     this.messageService.clear('c');
     this.http.joinGroup(this.jointhisGroup).subscribe(res => {
       console.log(res);
     });
   }
+
+  /* Popup reject functionality functionality */
   onReject() {
     this.messageService.clear('c');
   }
 
+  /*clear toast message*/
   clear() {
     this.messageService.clear();
   }
-
+  /*filter group*/
   filterGroups() {
     if (this.groups && this.groups.length) {
       this.groups.forEach(element => {
