@@ -1,18 +1,73 @@
 <div class="row justify-content-center ">
     <div class="col6 align-self-center login-container">
-        <form [formGroup]="loginform" (ngSubmit)="loginSubmit($event)">
+        <form [formGroup]="loginform" (ngSubmit)="validateUser($event)">
             <h2 class="center text-capitalize">{{identity}} Login</h2>
+            <p> <i id="emailHelp" *ngIf="loginvalidation" class="form-text text-danger">Enter valid user name and Password</i></p>
             <div class="form-group">
                 <label for="exampleInputEmail1">User Name</label>
-                <input type="text" formControlName="username" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                    placeholder="UserName">
+                <input type="text" formControlName="username" class="form-control" id="exampleInputEmail1"
+                    aria-describedby="emailHelp" placeholder="UserName">
                 <!-- <small id="emailHelp" class="form-text text-muted">Your user   </small> -->
             </div>
             <div class="form-group">
                 <label for="exampleInputPassword1">Password</label>
-                <input type="password" formControlName="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-            </div>          
+                <input type="password" formControlName="password" class="form-control" id="exampleInputPassword1"
+                    placeholder="Password">
+            </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
+        <p> <i>Dont have an account? <b><a href="javascript:void(0)" (click)="registerForm()">Sign Up</a></b></i></p>
     </div>
 </div>
+
+<p-dialog [(visible)]="displayRegiserForm" [transitionOptions]="'200ms'" [style]="{width: '500px'}">
+    <!--   -->
+    <p-header>
+        Register
+    </p-header>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <form [formGroup]="registerforminput" (ngSubmit)="registerSubmit($event)">
+                    <!-- {{register_Form.controls | json}}              -->
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">User Name
+                        </label>
+                        <input type="text" formControlName="username" class="form-control" id="exampleInputEmail1"
+                            aria-describedby="emailHelp" placeholder="UserName">
+                        <p> <i id="emailHelp"
+                                *ngIf="registerforminput?.controls?.username?.touched && registerforminput?.controls?.username?.errors?.required"
+                                class="form-text text-danger">Enter valid user name</i></p>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Email Id
+                        </label>
+                        <input type="text" formControlName="mailid" class="form-control" id="exampleInputEmail1"
+                            aria-describedby="emailHelp" placeholder="Email Id">
+                        <p> <i id="emailHelp"
+                                *ngIf="registerforminput?.controls?.mailid?.touched && registerforminput?.controls?.mailid?.errors?.required"
+                                class="form-text text-danger">Mail id is required</i>
+                            <i id="emailHelp"
+                                *ngIf="registerforminput?.controls?.mailid?.touched && registerforminput?.controls?.mailid?.errors?.email"
+                                class="form-text text-danger">Enter Valid Mail id</i>
+                        </p>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Password
+                        </label>
+                        <input type="password" formControlName="password" class="form-control"
+                            id="exampleInputPassword1" placeholder="Password">
+                        <p> <i id="emailHelp"
+                                *ngIf="registerforminput?.controls?.password?.touched && registerforminput?.controls?.password?.errors?.required"
+                                class="form-text text-danger">Password is required</i></p>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Register</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- <p-footer>
+        //buttons
+    </p-footer> -->
+    <!---->
+</p-dialog>

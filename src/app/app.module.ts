@@ -14,6 +14,8 @@ import { HttpClientModule } from '@angular/common/http';
 
 import {AccordionModule} from 'primeng/accordion';
 import {TabViewModule} from 'primeng/tabview';
+import {DialogModule} from 'primeng/dialog';
+import {ToastModule} from 'primeng/toast';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import {TabViewModule} from 'primeng/tabview';
     AccordionModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    TabViewModule
+    TabViewModule,
+    DialogModule,
+    ToastModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,57 +1,70 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpService } from '../../http.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-
+import { IGroup } from '../../http.service';
+import { MessageService } from 'primeng/api';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
+  providers: [MessageService]
 })
 export class HomeComponent implements OnInit {
-  grouplist;
-  messages;
   getGroupId: number;
-  userDetails = [
-    {
-      name: 'jeyakumar',
-      password: 'jey',
-      id: 2
-    }
-  ];
+  getGroupName: string;
   getUserId: number;
   addmessage: FormGroup;
+  jointhisGroup;
+  joingrouplist;
   groups;
-  constructor(private http: HttpService) { }
+  getSessionvalue;
+  grouplist;
+  messages;
+  userDetails;
+  constructor(private http: HttpService, private messageService: MessageService) { }
 
   ngOnInit() {
-    this.getUserId = 1;
+    this.getSessionvalue = JSON.parse(sessionStorage.getItem('userdetails'))[0];
+    this.getUserId = this.getSessionvalue.id;
     this.addmessage = new FormGroup({
       message: new FormControl('', [Validators.required]),
       groupid: new FormControl(this.getGroupId),
-      userid: new FormControl(this.getUserId)
+      userid: new FormControl(this.getSessionvalue.id),
+      username: new FormControl(this.getSessionvalue.username)
     });
     this.getUserGroups();
     this.http.getGroups().subscribe(res => {
       this.grouplist = res;
+      this.filterGroups();
     });
   }
   addMessage() {
     this.http.postMessages(this.addmessage.value).subscribe(res => {
-      console.log(res);
+      this.addmessage.reset();
+      this.getGroupMessage(this.getGroupId);
     });
   }
-  handleChange(ev) {
-    this.getGroupId = this.groups[ev.index].groupId;
+  handleChange(id, name) {
+    this.getGroupId = id;
+    this.getGroupName = name;
+    this.addmessage.patchValue({
+      groupid: this.getGroupId
+    });
     this.getGroupMessage(this.getGroupId);
   }
   getUserGroups() {
     this.http.gerUserGroups(this.getUserId).subscribe(res => {
       this.groups = res;
-      this.getGroupId = this.groups[0].id;
-      this.addmessage.patchValue({
-        groupid: this.getGroupId
-      });
-      this.getGroupMessage(this.getGroupId);
+      const response = res as object[];
+      if (response.length) {
+        this.getGroupName = this.groups[0].name;
+        this.getGroupId = this.groups[0].groupId;
+        this.addmessage.patchValue({
+          groupid: this.getGroupId
+        });
+        this.getGroupMessage(this.getGroupId);
+      }
+
     });
   }
 
@@ -60,19 +73,47 @@ export class HomeComponent implements OnInit {
       this.messages = res;
     });
   }
-  joinGroup(group) {
-    debugger;
-    // "name": "UI",
-    //   "userId": 1,
-    //   "groupId": 1,
-    //   "id": 1
-    let userGroup = {};
-    userGroup.name = group.name;
-    userGroup.userId = this.getUserId;
-    userGroup.groupId = group.id;   
-    this.http.joinGroup(userGroup).subscribe(res => {
+  joinGroup(group: IGroup): void {
+
+    this.jointhisGroup = {};
+    this.jointhisGroup.name = group.name;
+    this.jointhisGroup.userId = this.getUserId;
+    this.jointhisGroup.groupId = group.id;
+    this.messageService.clear();
+
+    this.messageService.add({
+      key: 'c', sticky: true,
+      severity: 'warn',
+      summary: 'Are you sure want to Join this group?',
+       detail: 'Confirm to proceed' });
+    // this.http.joinGroup(userGroup).subscribe(res => {
+    //   console.log(res);
+    // });
+  }
+  onConfirm() {
+    this.messageService.clear('c');
+    this.http.joinGroup(this.jointhisGroup).subscribe(res => {
       console.log(res);
     });
   }
+  onReject() {
+    this.messageService.clear('c');
+}
+
+clear() {
+    this.messageService.clear();
+}
+
+  filterGroups() {
+    if (this.groups && this.groups.length) {
+      this.groups.forEach(element => {
+        const groupid = this.grouplist.findIndex(x => x.id === element.groupId);
+        this.grouplist.splice(groupid, 1);
+      });
+    }
+  }
+
+
+
 
 }

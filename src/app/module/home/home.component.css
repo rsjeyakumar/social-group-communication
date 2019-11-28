@@ -1,16 +1,68 @@
 .mynews-container {
-  background-color: #fff;
-  box-shadow: 0 0 35px 0 rgba(154, 161, 171, 0.15); 
+  /* background-color: #fff; */
+  box-shadow: 0 0 35px 0 rgba(154, 161, 171, 0.15);
+  min-height: 600px;
+  margin-top: 20px;
+}
+.border-right {
+  border-right: 1px solid rgba(154, 161, 171, 0.15);
   min-height: 600px;
 }
-.left-border{
-    border: 1px solid rgba(154, 161, 171, 0.15); 
+.border-left {
+  border-left: 1px solid rgba(154, 161, 171, 0.15);
   min-height: 600px;
 }
-textarea{
-    resize: vertical;
+textarea {
+  resize: vertical;
 }
-.grouplist{
-    display: block;
-    overflow: hidden;
+.grouplist {
+  display: block;
+  overflow: hidden;
 }
+.urgroups {
+  text-align: center;
+  background: #f60;
+  color: #fff;
+  padding: 9px;
+}
+.nav-item{
+  border-bottom: 1px dotted #525199;
+}
+.nav-item.active{
+  border-bottom: 2px solid #525199;
+}
+
+.panel-footer {
+  padding: 40px 10px;
+}
+.chat {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.chat li {
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+  border-bottom: 1px dotted #b3a9a9;
+}
+
+.chat li.even .chat-body {
+  margin-left: 60px;
+}
+
+.chat li.odd .chat-body {
+  margin-right: 60px;
+}
+
+.chat li .chat-body p {
+  margin: 0;
+  color: #777777;
+}
+
+.panel .slidedown .glyphicon,
+.chat .glyphicon {
+  margin-right: 5px;
+}
+
+

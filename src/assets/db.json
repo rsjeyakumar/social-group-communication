@@ -1,121 +1,59 @@
 {
   "user": [
     {
-      "name": "jeyakumar",
+      "username": "jey",
+      "mailid": "jey@gmail.com",
       "password": "jey",
       "id": 2
+    },
+    {
+      "username": "bala",
+      "mailid": "bala@gmail.com",
+      "password": "bala",
+      "id": 3
+    },
+    {
+      "username": "kumar",
+      "mailid": "kumar@gmail.com",
+      "password": "12345",
+      "id": 4
     }
   ],
   "usergroups": [
     {
       "name": "UI",
-      "userId": 1,
+      "userId": 2,
       "groupId": 1,
       "id": 1
     },
     {
-      "name": "DataBase",
-      "userId": 1,
-      "groupId": 3,
-      "id": 3
-    },
-    {
       "name": "JAVA",
-      "userId": 1,
+      "userId": 2,
       "groupId": 2,
-      "id": 4
+      "id": 2
     }
   ],
   "groups": [
     {
       "name": "UI",
+      "desc": "To Join this group you can Learn HTML CSS and javascript",
       "id": 1
     },
     {
       "name": "JAVA",
+      "desc": "To Join this group you can Learn JAVA and J2EE",
       "id": 2
     },
     {
       "name": "DataBase",
+      "desc": "To Join this group you can Learn SQL and noSql",
       "id": 3
     },
     {
       "name": "DevOps",
-      "id": 4
+      "id": 4,
+      "desc": "To Join this group you can Learn Container and qubernatics"
     }
   ],
-  "messages": [
-    {
-      "userid": 2,
-      "groupid": 2,
-      "message": "test test ste ste st wet set wet",
-      "id": 1
-    },
-    {
-      "userid": 2,
-      "groupid": 2,
-      "message": "test test ste ste st wet set wet",
-      "id": 2
-    },
-    {
-      "userid": 3,
-      "groupid": 2,
-      "message": "test test ste ste st wet set wet",
-      "id": 3
-    },
-    {
-      "userid": 3,
-      "groupid": 2,
-      "message": "first msg",
-      "id": 5
-    },
-    {
-      "message": "twet",
-      "groupid": 1,
-      "userid": 1,
-      "id": 6
-    },
-    {
-      "message": "atwerawe",
-      "groupid": 1,
-      "userid": 1,
-      "id": 7
-    },
-    {
-      "message": "afsdf",
-      "groupid": 1,
-      "userid": 1,
-      "id": 8
-    },
-    {
-      "message": "tewrt",
-      "groupid": 1,
-      "userid": 1,
-      "id": 9
-    },
-    {
-      "message": "xvsdf",
-      "groupid": 1,
-      "userid": 1,
-      "id": 10
-    },
-    {
-      "message": "test",
-      "groupid": 1,
-      "userid": 1,
-      "id": 11
-    },
-    {
-      "message": "hg",
-      "groupid": 1,
-      "userid": 1,
-      "id": 12
-    },
-    {
-      "message": "sdfd",
-      "groupid": 1,
-      "userid": 1,
-      "id": 13
-    }
-  ]
+  "messages": []
 }
