@@ -5,11 +5,11 @@
   margin-top: 20px;
 }
 .border-right {
-  border-right: 1px solid rgba(154, 161, 171, 0.15);
+  border-right: 1px solid #f60;
   min-height: 600px;
 }
 .border-left {
-  border-left: 1px solid rgba(154, 161, 171, 0.15);
+  border-left: 1px solid #f60;
   min-height: 600px;
 }
 textarea {
@@ -25,10 +25,10 @@ textarea {
   color: #fff;
   padding: 9px;
 }
-.nav-item{
+.nav-item {
   border-bottom: 1px dotted #525199;
 }
-.nav-item.active{
+.nav-item.active {
   border-bottom: 2px solid #525199;
 }
 
@@ -44,7 +44,7 @@ textarea {
 .chat li {
   margin-bottom: 10px;
   padding-bottom: 5px;
-  border-bottom: 1px dotted #b3a9a9;
+  border-bottom: 1px solid #f60;
 }
 
 .chat li.even .chat-body {
@@ -64,5 +64,3 @@ textarea {
 .chat .glyphicon {
   margin-right: 5px;
 }
-
-

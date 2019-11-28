@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { HttpService } from 'src/app/http.service';
+import { SharedataService } from '../../../sharedata.service';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,7 @@ export class LoginComponent implements OnInit {
   private registerforminput: FormGroup;
   private loginvalidation = false;
   displayRegiserForm = false;
-  constructor(private router: Router, private http: HttpService) { }
+  constructor(private router: Router, private http: HttpService, private sharedata: SharedataService) { }
 
   ngOnInit() {
     this.loginform = new FormGroup({

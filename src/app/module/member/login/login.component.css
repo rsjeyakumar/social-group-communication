@@ -1,7 +1,15 @@
 .login-container {
   padding: 30px 60px;
   margin: 30px;
-  /* border: 1px solid; */
+  margin-top: 20px;
+  display: inline-block;
+  margin: 100px 30px 30px 30px;
   background-color: #fff;
   box-shadow: 0 0 35px 0 rgba(154, 161, 171, 0.15);
+}
+.socialmess {
+  color: #f60;
+}
+.register {
+  margin-top: 10px;
 }

@@ -4,13 +4,17 @@ import { LoginComponent } from './module/member/login/login.component';
 import { HomeComponent } from './module/home/home.component';
 
 
+
+
 const routes: Routes = [
   {
-    path: '', component: LoginComponent
+    path: '',
+    loadChildren: './module/member/member.module#MemberModule'
 
   },
   {
-    path: 'home', component: HomeComponent
+    path: 'home',
+    loadChildren: './module/home/home.module#HomeModule'
 
   }
 ];

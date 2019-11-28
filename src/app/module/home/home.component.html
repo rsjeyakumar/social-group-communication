@@ -3,21 +3,22 @@
     <div class="row">
         <div class="col col-lg-3 col-sm-12 border-right">
             <h3 class="urgroups">Your Groups</h3>
-             <ul class="nav flex-column">
+            <ul class="nav flex-column">
                 <li class="nav-item" [class.active]="group.groupId == getGroupId" *ngFor="let group of groups;">
                     <!-- {{group.groupId | json  }} =={{getGroupId}} -->
                     <a class="nav-link" href="javascript:void(0)"
                         (click)="handleChange(group.groupId,group.name)">{{group.name}}</a>
                 </li>
-               <li *ngIf="groups == 0">
-                You are not joined in any group. Please join in intrested group
-               </li>
+                <li *ngIf="groups == 0">
+                    You are not joined in any group. Please join in intrested group
+                </li>
             </ul>
         </div>
         <div class="col col-lg-6 col-sm-12">
             <div class="panel panel-primary">
                 <div class="panel-heading">
-                    <h3><span class="glyphicon glyphicon-comment"></span> {{getGroupName | uppercase}} Group Discussion</h3>
+                    <h3><span class="glyphicon glyphicon-comment"></span> {{getGroupName | uppercase}} Group Discussion
+                    </h3>
                 </div>
                 <div class="panel-body">
                     <div class="panel-footer">
@@ -27,8 +28,8 @@
                                 <input id="btn-input" formControlName="message" type="text"
                                     class="form-control input-sm" placeholder="Type your message here..." />
                                 <span class="input-group-btn">
-                                    <button [disabled]="addmessage.invalid"  (click)="addMessage()" type="button" class="btn btn-primary"
-                                        id="btn-chat">
+                                    <button [disabled]="addmessage.invalid" (click)="addMessage()" type="button"
+                                        class="btn btn-primary" id="btn-chat">
                                         Send</button>
                                 </span>
 
@@ -75,7 +76,8 @@
                             <h5 class="card-title">{{group.name}} </h5>
                             <p class="card-text">{{group.desc}}
                             </p>
-                            <button class="btn btn-primary " type="button" pButton label="Confirm" (click)="joinGroup(group)">Join</button>
+                            <button class="btn btn-primary " type="button" pButton label="Confirm"
+                                (click)="joinGroup(group)">Join</button>
                         </div>
                     </div>
                 </div>
@@ -85,19 +87,20 @@
 </div>
 
 <p-toast position="center" key="c" (onClose)="onReject()" [modal]="true" [baseZIndex]="5000">
-        <ng-template let-message pTemplate="message">
-            <div style="text-align: center">
-                <i class="pi pi-exclamation-triangle" style="font-size: 3em"></i>
-                <h3>{{message.summary}}</h3>
-                <p>{{message.detail}}</p>
+    <ng-template let-message pTemplate="message">
+        <div style="text-align: center">
+            <i class="pi pi-exclamation-triangle" style="font-size: 3em"></i>
+            <h3>{{message.summary}}</h3>
+            <p>{{message.detail}}</p>
+        </div>
+        <div class="ui-g ui-fluid">
+            <div class="ui-g-6">
+                <button type="button" pButton (click)="onConfirm()" label="Yes" class="btn btn-primary">Confirm</button>
             </div>
-            <div class="ui-g ui-fluid">
-                <div class="ui-g-6">
-                    <button type="button" pButton (click)="onConfirm()" label="Yes" class="btn btn-primary">Confirm</button>
-                </div>
-                <div class="ui-g-6">
-                    <button type="button" pButton (click)="onReject()" label="No" class="btn btn-secoundary">Don't Join</button>
-                </div>
+            <div class="ui-g-6">
+                <button type="button" pButton (click)="onReject()" label="No" class="btn btn-secoundary">Don't
+                    Join</button>
             </div>
-        </ng-template>
-    </p-toast>
+        </div>
+    </ng-template>
+</p-toast>

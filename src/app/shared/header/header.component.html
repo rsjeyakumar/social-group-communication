@@ -9,12 +9,12 @@
     </div>
     <div class="pull-right">
         <ul class="navbar-nav">
-            <li class="nav-item">
+            <li class="nav-item username">
                 Welcome <i><b>{{username}}</b></i>
             </li>
             &nbsp;
             <li class="nav-item" *ngIf="username">
-              <button class="btn btn-primary" (click)="clearUserSession()">LogOut</button>  
+                <button class="btn btn-primary" (click)="clearUserSession()">LogOut</button>
             </li>
         </ul>
 

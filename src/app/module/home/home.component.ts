@@ -21,6 +21,7 @@ export class HomeComponent implements OnInit {
   grouplist;
   messages;
   userDetails;
+  placeholder: string;
   constructor(private http: HttpService, private messageService: MessageService) { }
 
   ngOnInit() {
@@ -85,7 +86,8 @@ export class HomeComponent implements OnInit {
       key: 'c', sticky: true,
       severity: 'warn',
       summary: 'Are you sure want to Join this group?',
-       detail: 'Confirm to proceed' });
+      detail: 'Confirm to proceed'
+    });
     // this.http.joinGroup(userGroup).subscribe(res => {
     //   console.log(res);
     // });
@@ -98,11 +100,11 @@ export class HomeComponent implements OnInit {
   }
   onReject() {
     this.messageService.clear('c');
-}
+  }
 
-clear() {
+  clear() {
     this.messageService.clear();
-}
+  }
 
   filterGroups() {
     if (this.groups && this.groups.length) {

@@ -1,7 +1,11 @@
-.mybg-blue{
-    background-color: #f60;
-    color:#fff;
+.mybg-blue {
+  background-color: #f60;
+  color: #fff;
 }
-.mybg-blue a{
-    color:#fff;
+.mybg-blue a {
+  color: #fff;
+}
+.username {
+  padding-top: 7px;
+  padding-right: 10px;
 }

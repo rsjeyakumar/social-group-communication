@@ -1,8 +1,12 @@
 <div class="row justify-content-center ">
+    <div class="col-6 align-self-center socialmess">
+        <h1>Welcome to Social group communication</h1>
+    </div>
     <div class="col6 align-self-center login-container">
         <form [formGroup]="loginform" (ngSubmit)="validateUser($event)">
             <h2 class="center text-capitalize">{{identity}} Login</h2>
-            <p> <i id="emailHelp" *ngIf="loginvalidation" class="form-text text-danger">Enter valid user name and Password</i></p>
+            <p> <i id="emailHelp" *ngIf="loginvalidation" class="form-text text-danger">Enter valid user name and
+                    Password</i></p>
             <div class="form-group">
                 <label for="exampleInputEmail1">User Name</label>
                 <input type="text" formControlName="username" class="form-control" id="exampleInputEmail1"
@@ -16,7 +20,8 @@
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
-        <p> <i>Dont have an account? <b><a href="javascript:void(0)" (click)="registerForm()">Sign Up</a></b></i></p>
+        <p class="register"> <i>Dont have an account? <b><a href="javascript:void(0)" (click)="registerForm()">Sign
+                        Up</a></b></i></p>
     </div>
 </div>
 
