@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpService } from '../../http.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { IGroup } from '../../http.service';
+import { User, Groups, Messages, Usergroups } from 'src/app/model/appmodel';
 import { MessageService } from 'primeng/api';
+
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -14,13 +16,13 @@ export class HomeComponent implements OnInit {
   getGroupName: string;
   getUserId: number;
   addmessage: FormGroup;
-  jointhisGroup;
-  joingrouplist;
-  groups;
-  getSessionvalue;
-  grouplist;
-  messages;
-  userDetails;
+  jointhisGroup: Usergroups;
+
+  groups: Usergroups[];
+  getSessionvalue: { id: number; username: string; };
+  grouplist: Groups[];
+  messages: Messages[];
+  userDetails: any;
   placeholder: string;
   constructor(private http: HttpService, private messageService: MessageService) { }
 
@@ -48,7 +50,7 @@ export class HomeComponent implements OnInit {
     });
   }
   /*this function  will fetch based on group clicked */
-  handleChange(id, name) {
+  handleChange(id: number, name: string) {
     this.getGroupId = id;
     this.getGroupName = name;
     this.addmessage.patchValue({
@@ -75,16 +77,15 @@ export class HomeComponent implements OnInit {
   }
 
   /*fetch group message */
-  getGroupMessage(id) {
+  getGroupMessage(id: number) {
     this.http.getMessages(id).subscribe(res => {
       this.messages = res;
     });
   }
 
   /*Join the group functionalities  */
-  joinGroup(group: IGroup): void {
+  joinGroup(group: Groups): void {
 
-    this.jointhisGroup = {};
     this.jointhisGroup.name = group.name;
     this.jointhisGroup.userId = this.getUserId;
     this.jointhisGroup.groupId = group.id;
@@ -122,7 +123,7 @@ export class HomeComponent implements OnInit {
   filterGroups() {
     if (this.groups && this.groups.length) {
       this.groups.forEach(element => {
-        const groupid = this.grouplist.findIndex(x => x.id === element.groupId);
+        const groupid = this.grouplist.findIndex((x) => x.id === element.groupId);
         this.grouplist.splice(groupid, 1);
       });
     }

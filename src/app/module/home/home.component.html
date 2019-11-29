@@ -9,7 +9,7 @@
                     <a class="nav-link" href="javascript:void(0)"
                         (click)="handleChange(group.groupId,group.name)">{{group.name}}</a>
                 </li>
-                <li *ngIf="groups == 0">
+                <li *ngIf="groups.length == 0">
                     You are not joined in any group. Please join in intrested group
                 </li>
             </ul>
@@ -58,7 +58,7 @@
                                 </p>
                             </div>
                         </li>
-                        <li *ngIf="messages == 0">No Message in this group </li>
+                        <li *ngIf="messages.length == 0">No Message in this group </li>
 
                     </ul>
                 </div>

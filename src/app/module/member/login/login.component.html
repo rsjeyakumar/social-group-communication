@@ -3,8 +3,8 @@
         <h1>Welcome to Social group communication</h1>
     </div>
     <div class="col6 align-self-center login-container">
-        <form [formGroup]="loginform" (ngSubmit)="validateUser($event)">
-            <h2 class="center text-capitalize">{{identity}} Login</h2>
+        <form [formGroup]="loginform" (ngSubmit)="validateUser()">
+            <h2 class="center text-capitalize">Login</h2>
             <p> <i id="emailHelp" *ngIf="loginvalidation" class="form-text text-danger">Enter valid user name and
                     Password</i></p>
             <div class="form-group">
@@ -33,7 +33,7 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                <form [formGroup]="registerforminput" (ngSubmit)="registerSubmit($event)">
+                <form [formGroup]="registerforminput" (ngSubmit)="registerSubmit()">
                     <!-- {{register_Form.controls | json}}              -->
                     <div class="form-group">
                         <label for="exampleInputEmail1">User Name

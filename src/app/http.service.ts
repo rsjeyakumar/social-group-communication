@@ -1,14 +1,8 @@
 import { Injectable } from '@angular/core';
 
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
 
-export interface IGroup {
-  name: string;
-  desc: string;
-  id: number;
-
-}
+import { User, Groups, Messages, Usergroups } from './model/appmodel';
 
 
 @Injectable({
@@ -19,8 +13,8 @@ export class HttpService {
 
   constructor(private http: HttpClient) { }
 
-  getGroups(): Observable<IGroup[]> {
-    return this.http.get<IGroup[]>('http://localhost:3000/groups');
+  getGroups() {
+    return this.http.get<Groups[]>('http://localhost:3000/groups');
   }
   getMessages(id) {
     let combine;
@@ -29,23 +23,23 @@ export class HttpService {
     } else {
       combine = '';
     }
-    return this.http.get('http://localhost:3000/messages' + combine);
+    return this.http.get<Messages[]>('http://localhost:3000/messages' + combine);
   }
   postMessages(data) {
-    return this.http.post('http://localhost:3000/messages', data);
+    return this.http.post<Messages>('http://localhost:3000/messages', data);
   }
   joinGroup(data) {
-    return this.http.post('http://localhost:3000/usergroups', data);
+    return this.http.post<Usergroups>('http://localhost:3000/usergroups', data);
   }
   gerUserGroups(id) {
     const combine = '?userId=' + id;
-    return this.http.get('http://localhost:3000/usergroups' + combine);
+    return this.http.get<Usergroups[]>('http://localhost:3000/usergroups' + combine);
   }
   registerUser(data) {
-    return this.http.post('http://localhost:3000/user', data);
+    return this.http.post<User>('http://localhost:3000/user', data);
   }
   userValidation(queryparams) {
-    return this.http.get('http://localhost:3000/user' + queryparams);
+    return this.http.get<User>('http://localhost:3000/user' + queryparams);
   }
 
 }

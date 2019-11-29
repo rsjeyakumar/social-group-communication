@@ -10,9 +10,9 @@ import { SharedataService } from '../../../sharedata.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  private loginform: FormGroup;
-  private registerforminput: FormGroup;
-  private loginvalidation = false;
+  loginform: FormGroup;
+  registerforminput: FormGroup;
+  loginvalidation = false;
   displayRegiserForm = false;
   constructor(private router: Router, private http: HttpService, private sharedata: SharedataService) { }
 
@@ -32,14 +32,14 @@ export class LoginComponent implements OnInit {
 
     const queryParams = '?usearname=' + this.loginform.value.username + '&password=' + this.loginform.value.password;
     this.http.userValidation(queryParams).subscribe((res) => {
-      const response = res as object[];
-      if (response.length === 1) {
-        this.loginvalidation = false;
-        sessionStorage.setItem('userdetails', JSON.stringify(response));
-        this.router.navigate(['home']);
-      } else {
-        this.loginvalidation = true;
-      }
+      const response = res;
+      // if (response.length === 1) {
+      this.loginvalidation = false;
+      sessionStorage.setItem('userdetails', JSON.stringify(response));
+      this.router.navigate(['home']);
+      // } else {
+      //   this.loginvalidation = true;
+      // }
 
     });
 

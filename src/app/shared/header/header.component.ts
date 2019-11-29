@@ -9,7 +9,7 @@ import { SharedataService } from '../../sharedata.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  private username: string;
+  username: string;
   constructor(private router: Router, private shareddata: SharedataService) { }
 
   ngOnInit() {
