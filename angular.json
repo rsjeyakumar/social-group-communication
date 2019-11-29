@@ -65,6 +65,22 @@
               ],
               "serviceWorker": true,
               "ngswConfigPath": "ngsw-config.json"
+            },
+            "ta": {
+              "aot": true,
+              "outputPath": "dist/social-group-communication-ta/",
+              "i18nFile": "translate/messages.ta.xlf",
+              "i18nFormat": "xlf",
+              "i18nLocale": "ta",
+              "i18nMissingTranslation": "error"
+            },
+            "ka": {
+              "aot": true,
+              "outputPath": "dist/social-group-communication-ka/",
+              "i18nFile": "translate/messages.ka.xlf",
+              "i18nFormat": "xlf",
+              "i18nLocale": "ka",
+              "i18nMissingTranslation": "error"
             }
           }
         },
@@ -76,6 +92,12 @@
           "configurations": {
             "production": {
               "browserTarget": "social-group-communication:build:production"
+            },
+            "ta": {
+              "browserTarget": "social-group-communication:build:ta"
+            },
+            "ka": {
+              "browserTarget": "social-group-communication:build:ka"
             }
           }
         },
